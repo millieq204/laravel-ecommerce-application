@@ -17,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::view('/', 'main');
+Route::view('/products', 'products');
+Route::view('/product', 'product');
+Route::view('/cart', 'cart');
+Route::view('/checkout', 'checkout');
 // Route::group(['prefix' => 'admin'], function () {
 
 //     Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
