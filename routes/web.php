@@ -1,7 +1,7 @@
 <?php
-require 'admin.php';
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,19 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/admin', 'admin.dashboard.index');
-// Route::view('/', 'main');
-// Route::view('/products', 'products');
-// Route::view('/product', 'product');
-// Route::view('/cart', 'cart');
-// Route::view('/checkout', 'checkout');
-// Route::group(['prefix' => 'admin'], function () {
-
-//     Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
-//     Route::post('login', 'Admin\LoginController@login')->name('admin.login.post');
-//     Route::get('logout', 'Admin\LoginController@logout')->name('admin.logout');
-
-//     Route::get('/', function () {
-//         return view('admin.dashboard.index');
-//     });
-// });
+Route::namespace('App\Http\Controllers')->group(function () {
+    Auth::routes();
+});
+require 'admin.php';
